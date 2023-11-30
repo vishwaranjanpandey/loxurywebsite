@@ -201,24 +201,26 @@ Now generate sshkey and copy rsa_pub into ansible  server with root@<pub/pri IP 
     ssh-keygen
     ssh-copy-id root@<pubIP>    
 
- mm  
+   
 Download jenkin Plugin to enable ssh communication between jenkin and ansible server 
 
 Now go to manage jenkin and Download "Publish Over SSH" plugin
+
 now go to tools and configure ssh server and add jenkin and ansible server 
-ssh server 
-name: ansible
-hostname: <ansible pub ip>
-username: root
-password: devops
+
+#ssh server 
+#name: ansible
+#hostname: <ansible pub ip>
+#username: root
+#password: devops
 
 add jenkin server also to copy file from jenkin server to ansible server 
 
-ssh server
-name: jenkin
-hostname: <jenkin pub ip>
-username: root
-password: devops
+#ssh server
+#name: jenkin
+#hostname: <jenkin pub ip>
+#username: root
+#password: devops
 
 
 
@@ -230,16 +232,24 @@ https://github.com/vishwaranjanpandey/kubernetesproject.git
 Now go to build step and click on Send files or execute commands over SSH
 
 To copy dockerfile from jenkin to ansible server use rsync command on jenkin ssh server 
+
 rsync -avh /var/lib/jenkins/workspace/kubernetesproject/Dockerfile root@<ansilbeIP>:/home/ec2-user
 
 now Build the docker image and push Docker image in docker hub on ansible ssh server because docker alreay install in ansible server 
 
+
+
+
 now execute below command on ssh ansible server
 
 user Exec command
+
 cd /home/ec2-user
+
 docker build -t kubernetesproject . 
+
 docker image tag kubernetesproject:latest vishwaranjanpandey/kubernetesproject
+
 docker push vishwaranjanpandey/kubernetesproject
 
 
