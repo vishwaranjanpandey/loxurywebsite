@@ -253,7 +253,12 @@ docker image tag kubernetesproject:latest vishwaranjanpandey/kubernetesproject
 docker push vishwaranjanpandey/kubernetesproject
 
 
-Now create Webhook on dockerfile repositery
+Now create API token in jenkin server (click on configure)and then  create Webhook on dockerfile repositery
+
+
+Post build action execute below command to run playbook 
+
+ansible-playbook /home/ec2-user/ansible.yml
 
 
 
