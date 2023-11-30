@@ -131,6 +131,7 @@ NOW INSTALL DOCKER AND ANSIBLE ON SECOND UBUNTU SERVER
     sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/kubernetes/0-install/daemon.json -P /etc/docker
     sudo systemctl restart docker.service
     sudo service docker status
+    sudo chmod 777 /var/run/docker.sock
 
 After installation login docker hub account also >>>>>>>>>>>>
 
